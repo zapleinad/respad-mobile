@@ -2,7 +2,7 @@ name: Build Android APK - RESPAD
 
 on:
   push:
-    branches: [ principal ] # Ajustado para 'principal' conforme seu print
+    branches: [ principal ] # Ajustado conforme o botão 'principal' do seu print
 
 jobs:
   android-build:
@@ -37,4 +37,5 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: RESPAD-Mobile-v1.0.0
+          # Caminho ajustado para 'Android/aplicativo' conforme sua imagem
           path: Android/aplicativo/build/outputs/apk/release/app-release.apk

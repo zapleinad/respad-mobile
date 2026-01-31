@@ -1,4 +1,4 @@
-package br.gov.mjsp.senasp.respad;
+package com.respadmobile;
 
 import android.app.Application;
 import com.facebook.react.PackageList;

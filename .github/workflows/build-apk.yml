@@ -2,7 +2,8 @@ name: Build Android APK - RESPAD
 
 on:
   push:
-    branches: [ principal ] # Ajustado conforme o botão 'principal' do seu print
+    branches: [ main ]
+  workflow_dispatch: # Permite rodar manualmente na aba Actions
 
 jobs:
   android-build:
@@ -26,16 +27,15 @@ jobs:
           java-version: '17'
 
       - name: Dar permissão de execução ao Gradle
-        run: chmod +x Android/gradlew
+        run: chmod +x android/gradlew
 
       - name: Gerar APK de Release
         run: |
-          cd Android
+          cd android
           ./gradlew assembleRelease
 
       - name: Salvar APK como Artefato
         uses: actions/upload-artifact@v4
         with:
           name: RESPAD-Mobile-v1.0.0
-          # Caminho ajustado para 'Android/aplicativo' conforme sua imagem
-          path: Android/aplicativo/build/outputs/apk/release/app-release.apk
+          path: android/app/build/outputs/apk/release/app-release.apk

@@ -1,0 +1,8 @@
+﻿rootProject.name = 'RespadMobile'
+def nativeModulesGradle = file("../node_modules/@react-native/cli-platform-android/native_modules.gradle")
+if (nativeModulesGradle.exists()) {
+    apply from: nativeModulesGradle
+    applyNativeModulesSettingsGradle(settings)
+}
+include ':app'
+includeBuild('../node_modules/@react-native/gradle-plugin')
